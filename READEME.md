@@ -8,15 +8,15 @@ Para instalar este proyecto, siga estos pasos:
 ```bash
 git clone https://github.com/JEmperador/presentacions_backend.git
 ```
-- Ingresar a la carpeta correspondiente, por ejemplo `02`
+- Ingresar a la carpeta correspondiente, por ejemplo `02`:
 ```bash
 cd carpeta-deseada
 ```
-- Instalar las dependencias necesarias: npm install
+- Instalar las dependencias necesarias:
 ```bash
 npm install
 ```
-- Inicie el servidor de desarrollo: nodemon start
+- Inicie el servidor de desarrollo:
 ```bash
 nodemon start
 ```
