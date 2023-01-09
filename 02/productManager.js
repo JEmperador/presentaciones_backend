@@ -1,7 +1,6 @@
 class ProductManager {
-  products = [];
-
   constructor() {
+    this.products = [];
     this.id = 0;
   }
 
@@ -43,7 +42,7 @@ class ProductManager {
   }
 }
 
-/* //instancia de la clase
+//instancia de la clase
 const productsManager = new ProductManager();
 
 //primera consulta => []
@@ -79,4 +78,4 @@ console.log(productsManager.addProduct(titleProduct, descriptionProduct, pricePr
 console.log(productsManager.getProductsById(5));
 
 //consulta si existe el producto
-console.log(productsManager.getProductsById(0)); */
+console.log(productsManager.getProductsById(0));
