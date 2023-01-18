@@ -1,8 +1,8 @@
 import fs from "fs";
 
-const path = "./products.json";
+const path = "../mock/products.json";
 
-class ProductManager {
+export default class ProductManager {
   constructor() {
     this.products = [];
     this.id = 0;
@@ -48,7 +48,6 @@ class ProductManager {
 
   async getProducts() {
     try {
-
       if (fs.existsSync(path)) {
         const data = await fs.promises.readFile(path, "utf-8");
         const products = JSON.parse(data);
@@ -69,7 +68,7 @@ class ProductManager {
       if (itemId === undefined) {
         return console.error("El producto no existe");
       } else {
-        return console.log(itemId);
+        return itemId;
       }
     } catch (err) {
       return console.error(err);
@@ -114,7 +113,7 @@ class ProductManager {
   }
 }
 
-const manager = new ProductManager();
+/* const manager = new ProductManager(); */
 
 /* const consulta = async () => {
   console.log("----------Consulta de productos----------");
@@ -134,15 +133,3 @@ carga(); */
   const idProduct = await manager.getProductById(1);
 };
 consultaPorId(); */
-
-/* const actualizar = async () => {
-  console.log("----------Actualizacion de producto----------");
-  const productUpdate1 = await manager.updateProduct(1, { title: "producto prueba modificado", description: "Lorem Ipsum modificado", stock: 50 });
-};
-actualizar(); */
-
-/* const borrar = async () => {
-  console.log("----------Borra producto por id----------");
-  const idDelete = await manager.deleteProduct(1);
-};
-borrar(); */
