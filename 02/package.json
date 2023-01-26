@@ -1,0 +1,14 @@
+{
+  "name": "02",
+  "version": "1.0.0",
+  "description": "Desafio 2",
+  "main": "productManager.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JEmperador",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
