@@ -114,36 +114,3 @@ class CartManager {
 }
 
 module.exports = CartManager;
-
-/* const manager = new CartManager(); */
-
-/* const consulta = async () => {
-  console.log("----------Consulta de carritos----------");
-  const queryCarts = await manager.getCarts();
-  console.log(queryCarts);
-};
-consulta(); */
-
-/* const consultaPorId = async () => {
-  console.log("----------Consulta de producto por id----------");
-  const idCart = await manager.getCartById(4);
-};
-consultaPorId(); */
-
-/* const crearCarrito = async () => {
-  console.log("----------Consulta de producto por id----------");
-  const carrito = await manager.createCart();
-};
-crearCarrito(); */
-
-/* const agregarProductos = async () => {
-  console.log("----------Agregar productos pegando al id del carrito----------");
-  const carritoProducto = await manager.updateCart(3, 3, 2);
-};
-agregarProductos(); */
-
-/* const eliminarCarrito = async () => {
-  console.log("----------Agregar productos pegando al id del carrito----------");
-  const eliminaCarrito = await manager.deleteCart(2);
-};
-eliminarCarrito(); */
