@@ -30,7 +30,7 @@ class CartManager {
 
       carts.push(cart);
       await fs.promises.writeFile(path, JSON.stringify(carts, null, "\t"));
-      return console.log(carts);
+      return carts;
     } catch (err) {
       return console.log(err);
     }
@@ -46,7 +46,7 @@ class CartManager {
         return [];
       }
     } catch {
-      return console.log(err);
+      return err;
     }
   }
 
@@ -58,7 +58,7 @@ class CartManager {
       if (cartId === undefined) {
         return console.error("El producto no existe");
       } else {
-        return console.log(cartId);
+        return cartId;
       }
     } catch (err) {
       return console.error(err);
@@ -89,7 +89,7 @@ class CartManager {
       }
 
       await fs.promises.writeFile(path, JSON.stringify(carts, null, "\t"));
-      return console.log(`El Carrito con id: ${idCart}, actualizo el producto; ${idProduct} satisfactoriamente`);
+      return cart;
     } catch (err) {
       return console.error(err);
     }
@@ -132,8 +132,7 @@ consultaPorId(); */
 
 /* const crearCarrito = async () => {
   console.log("----------Consulta de producto por id----------");
-  const carrito4 = await manager.createCart();
-  const carrito5 = await manager.createCart();
+  const carrito = await manager.createCart();
 };
 crearCarrito(); */
 

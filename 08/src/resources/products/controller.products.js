@@ -20,10 +20,10 @@ router.get("/", async (req, res) => {
   try {
     const products = await productManager.getProducts();
     if (!limit) {
-      res.status(200).json(products);
+      res.status(200).json({ message: products });
     } else {
       const productsLimited = products.slice(0, limit);
-      res.status(200).json(productsLimited);
+      res.status(206).json({ message: productsLimited });
     }
   } catch (err) {
     res.status(400).json({ error404: "Bad Request" });
@@ -37,7 +37,7 @@ router.get("/:pid", async (req, res) => {
     if (productId === undefined) {
       res.status(404).json({ error404: "Not Found" });
     } else {
-      res.status(200).json(productId);
+      res.status(200).json({ message: productId });
     }
   } catch (err) {
     res.status(400).json({ error400: "Bad Request" });
@@ -45,14 +45,14 @@ router.get("/:pid", async (req, res) => {
 });
 
 router.put("/:pid", async (req, res) => {
-  const pid = req.params.pid;
+  const { pid } = req.params;
   const props = req.body;
   try {
     const updatedProduct = await productManager.updateProduct(Number(pid), props);
     if (!updatedProduct) {
       res.status(404).json({ error404: `Product with id: ${pid} not found.` });
     } else {
-      res.json({ message: updatedProduct });
+      res.status(200).json({ message: updatedProduct });
     }
   } catch (err) {
     res.status(500).json({ error400: "Bad Request" });

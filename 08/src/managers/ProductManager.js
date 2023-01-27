@@ -41,10 +41,10 @@ class ProductManager {
         products.push(product);
         await fs.promises.writeFile(path, JSON.stringify(products, null, "\t"));
 
-        return console.log(products);
+        return product;
       }
     } catch (err) {
-      return console.log(err);
+      return console.error(err);
     }
   }
 
@@ -58,19 +58,19 @@ class ProductManager {
         return [];
       }
     } catch (err) {
-      return console.log(err);
+      return console.error(err);
     }
   }
 
   async getProductById(idProduct) {
     const products = await this.getProducts();
     try {
-      const itemId = Object.values(products).find((product) => product.id === idProduct);
+      const productId = Object.values(products).find((product) => product.id === idProduct);
 
-      if (itemId === undefined) {
+      if (productId === undefined) {
         return console.error("El producto no existe");
       } else {
-        return itemId;
+        return productId;
       }
     } catch (err) {
       return console.error(err);
@@ -89,7 +89,7 @@ class ProductManager {
         await fs.promises.writeFile(path, JSON.stringify(products), "utf-8");
         const updatedProduct = products[index];
 
-        return console.log(updatedProduct);
+        return updatedProduct;
       }
     } catch (err) {
       return console.error(err);
@@ -105,7 +105,7 @@ class ProductManager {
         products = products.filter((item) => item.id !== idProduct);
         await fs.promises.writeFile(path, JSON.stringify(products), "utf-8");
 
-        return console.log("Producto eleminado correctamente");
+        return console.log(`Producto con id: ${idProduct} eleminado correctamente`);
       } else {
         return console.error("El producto no existe");
       }
