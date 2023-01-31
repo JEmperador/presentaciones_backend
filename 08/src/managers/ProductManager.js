@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const path = "../mock/products.json";
+const path = "./mock/products.json";
 
 class ProductManager {
   constructor() {

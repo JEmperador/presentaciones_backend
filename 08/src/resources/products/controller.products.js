@@ -8,8 +8,13 @@ router.post("/", async (req, res) => {
   const { title, description, code, price, stock, category } = req.body;
   const thumbnail = req.body.thumbnail || [];
   try {
-    await productManager.addProduct(title, description, code, price, stock, category, thumbnail);
-    res.status(201).json({ message: "Product created successfully" });
+    const products = await productManager.getProducts();
+    if (products.find((product) => product.code === code)) {
+      res.status(400).json({ error400: `El producto con el codigo: ${code} ya existe` });
+    } else {
+      await productManager.addProduct(title, description, code, price, stock, category, thumbnail);
+      res.status(201).json({ message: "Product created successfully" });
+    }
   } catch (err) {
     res.status(500).json({ error500: "error creating product" });
   }
